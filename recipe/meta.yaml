@@ -24,12 +24,12 @@ requirements:
     - python >=3.7
     - pyzmq
     - typer
+    - click <8
     - python-dateutil
 
 test:
   commands:
     - akernel --help
-    - akernel install python
     - test -f ${PREFIX}/share/jupyter/kernels/akernel/kernel.json  # [unix]
     - if not exist %PREFIX%\share\jupyter\kernels\akernel\kernel.json (exit 1)  # [win]
 
