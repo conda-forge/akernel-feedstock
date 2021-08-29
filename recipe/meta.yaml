@@ -26,6 +26,8 @@ requirements:
     - typer
     - click <8
     - python-dateutil
+    - colorama
+    - gast
 
 test:
   commands:
