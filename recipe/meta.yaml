@@ -1,5 +1,5 @@
 {% set name = "akernel" %}
-{% set version = "0.0.12" %}
+{% set version = "0.0.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f5abb0d19c021a6999cdbd9dcf65625ece31f3cee0bf1a299c421626ac1d7fbb
+  sha256: 2f7c08df58ea2190c883aaeaf7026bf3e62597462d293ceab0bc14ba06318fb9
 
 build:
   noarch: python
@@ -40,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: An asynchronous Python Jupyter kernel
+  summary: Asynchronous, reactive Python Jupyter kernel
   dev_url: https://github.com/davidbrochart/akernel
 
 extra:
