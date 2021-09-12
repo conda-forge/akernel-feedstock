@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/akernel-feedstock/blob/master/LICENSE.txt)
 
-Summary: An asynchronous Python Jupyter kernel
+Summary: Asynchronous, reactive Python Jupyter kernel
 
 Development: https://github.com/davidbrochart/akernel
 
