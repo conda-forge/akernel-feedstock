@@ -1,5 +1,5 @@
 {% set name = "akernel" %}
-{% set version = "0.0.16" %}
+{% set version = "0.0.17" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 26159bd92b1c7e5bbd373ec935092f69f283436a067ad46f90a8748adaed8d4e
+  sha256: c12ece4f2b8d6e8a404c70973c3e51035e448e94ef901543061070cf653cd85f
 
 build:
   noarch: python
