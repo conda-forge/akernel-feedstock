@@ -1,5 +1,5 @@
 {% set name = "akernel" %}
-{% set version = "0.0.17" %}
+{% set version = "0.0.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c12ece4f2b8d6e8a404c70973c3e51035e448e94ef901543061070cf653cd85f
+  sha256: 1701c430b100f186250681899ec446d5013b83bbac01ba9d6f50aca86a8f2706
 
 build:
   noarch: python
@@ -23,11 +23,11 @@ requirements:
   run:
     - python >=3.7
     - pyzmq
-    - typer
-    - click <8
+    - typer >=0.4.0
     - python-dateutil
     - colorama
-    - gast
+    - gast >=0.5.3
+    - ipyx >=0.1.7
 
 test:
   commands:
