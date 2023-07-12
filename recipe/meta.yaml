@@ -19,14 +19,15 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
   run:
-    - python >=3.7
+    - python >=3.8
     - pyzmq
     - typer >=0.4.0
     - python-dateutil
     - colorama
     - gast >=0.5.3
+    - comm >=0.1.3,<1
     - ipyx >=0.1.7
     - zict
 
