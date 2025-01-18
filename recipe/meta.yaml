@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: f8616167ea4ae99ffdde85a83c0670126e00887a4a28878279bbe1177d4288af
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - akernel = akernel.akernel:cli
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,9 +20,9 @@ requirements:
   host:
     - pip
     - hatchling
-    - python >=3.8
+    - python {{ python_min }}
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - pyzmq
     - typer >=0.4.0
     - python-dateutil
@@ -33,6 +33,8 @@ requirements:
     - zict
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - akernel --help
     - test -f ${PREFIX}/share/jupyter/kernels/akernel/kernel.json  # [unix]
