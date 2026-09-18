@@ -1,0 +1,65 @@
+schema_version: 1
+
+context:
+  name: akernel
+  version: "0.4.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 3345753e2790fd170407c7824b1eb84cc2e5733d86546065e251b3e0bbf05e96
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - akernel = akernel.akernel:app
+
+requirements:
+  host:
+    - pip
+    - hatchling
+    - python ${{ python_min }}.*
+  run:
+    - python >=${{ python_min }}
+    - anyio >=4.14.2,<5.0.0
+    - python-dateutil
+    - rich >=14.0,<15
+    - comm >=0.1.3,<1
+
+tests:
+  - python:
+      imports:
+        - akernel
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+        - zmq-anyio >=0.4.1,<0.5.0
+        - cyclopts >=4.22.2,<5.0.0
+    script:
+      - akernel --help
+      - if: unix
+        then: test -f ${PREFIX}/share/jupyter/kernels/akernel/kernel.json
+      - if: win
+        then: if not exist %PREFIX%\share\jupyter\kernels\akernel\kernel.json (exit 1)
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: An asynchronous Python Jupyter kernel
+  homepage: https://github.com/davidbrochart/akernel
+  repository: https://github.com/davidbrochart/akernel
+
+extra:
+  recipe-maintainers:
+    - davidbrochart
