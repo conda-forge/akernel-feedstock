@@ -1,5 +1,5 @@
 {% set name = "akernel" %}
-{% set version = "0.3.4" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c413e7d204645b610c3ad7c9f98f41d81401f41ca18960e1a605b07e1f2cc67f
+  sha256: 3345753e2790fd170407c7824b1eb84cc2e5733d86546065e251b3e0bbf05e96
 
 build:
   noarch: python
   number: 0
   entry_points:
-    - akernel = akernel.akernel:cli
+    - akernel = akernel.akernel:app
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -23,18 +23,17 @@ requirements:
     - python {{ python_min }}
   run:
     - python >={{ python_min }}
+    - anyio >=4.14.2,<5.0.0
     - python-dateutil
-    - colorama
-    - gast >=0.6.0,<0.7.0
+    - rich >=14.0,<15
     - comm >=0.1.3,<1
-    - anyio
 
 test:
   requires:
     - python {{ python_min }}
     - pip
-    - zmq-anyio >=0.3.9,<0.4.0
-    - typer >=0.4.0
+    - zmq-anyio >=0.4.1,<0.5.0
+    - cyclopts >=4.22.2,<5.0.0
   commands:
     - pip check
     - akernel --help
@@ -48,7 +47,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Asynchronous, reactive Python Jupyter kernel
+  summary: An asynchronous Python Jupyter kernel
   dev_url: https://github.com/davidbrochart/akernel
 
 extra:
