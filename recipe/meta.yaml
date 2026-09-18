@@ -13,7 +13,7 @@ build:
   noarch: python
   number: 0
   entry_points:
-    - akernel = akernel.akernel:cli
+    - akernel = akernel.akernel:app
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
