@@ -7,7 +7,7 @@ Home: https://github.com/davidbrochart/akernel
 
 Package license: MIT
 
-Summary: Asynchronous, reactive Python Jupyter kernel
+Summary: An asynchronous Python Jupyter kernel
 
 Development: https://github.com/davidbrochart/akernel
 
@@ -191,7 +191,4 @@ Feedstock Maintainers
 =====================
 
 * [@davidbrochart](https://github.com/davidbrochart/)
-
-
-<!-- dummy commit to enable rerendering -->
 
